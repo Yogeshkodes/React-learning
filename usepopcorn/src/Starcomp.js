@@ -15,8 +15,11 @@ export default function Starelement({
   color = "#fcc419",
   size = 48,
   message = [],
+  className = "",
+  defaultRating = 0,
+  onSetRating,
 }) {
-  const [rating, Setrating] = useState(0);
+  const [rating, Setrating] = useState(defaultRating);
   const [tempRating, setTemprating] = useState(0);
 
   const text = {
@@ -28,6 +31,7 @@ export default function Starelement({
 
   function handleRate(rating) {
     Setrating(rating);
+    onSetRating(rating);
   }
   return (
     <div style={Starcomp}>
